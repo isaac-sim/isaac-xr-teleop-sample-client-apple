@@ -1,0 +1,500 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C647B3F2D5D211B009BD5E8 /* CloudXRKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3C647B3E2D5D211B009BD5E8 /* CloudXRKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3C3DF3FD2CE7DA6B006863AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C3DF3DF2CE7DA68006863AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C3DF3E62CE7DA68006863AF;
+			remoteInfo = IsaacSimXRTeleopClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3C3DF3E72CE7DA68006863AF /* IsaacXRTeleopClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IsaacXRTeleopClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C3DF3FC2CE7DA6B006863AF /* IsaacXRTeleopClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IsaacXRTeleopClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3C3DF4022CE7DA6B006863AF /* Exceptions for "IsaacXRTeleopClient" folder in "IsaacXRTeleopClient" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3C3DF3E62CE7DA68006863AF /* IsaacXRTeleopClient */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3C3DF3E92CE7DA68006863AF /* IsaacXRTeleopClient */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3C3DF4022CE7DA6B006863AF /* Exceptions for "IsaacXRTeleopClient" folder in "IsaacXRTeleopClient" target */,
+			);
+			path = IsaacXRTeleopClient;
+			sourceTree = "<group>";
+		};
+		3C3DF3FF2CE7DA6B006863AF /* IsaacXRTeleopClientTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = IsaacXRTeleopClientTests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3C3DF3E42CE7DA68006863AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C647B3F2D5D211B009BD5E8 /* CloudXRKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C3DF3F92CE7DA6B006863AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3C3DF3DE2CE7DA68006863AF = {
+			isa = PBXGroup;
+			children = (
+				3C3DF3E92CE7DA68006863AF /* IsaacXRTeleopClient */,
+				3C3DF3FF2CE7DA6B006863AF /* IsaacXRTeleopClientTests */,
+				3C3DF4192CE7DBA9006863AF /* Frameworks */,
+				3C3DF3E82CE7DA68006863AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3C3DF3E82CE7DA68006863AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3C3DF3E72CE7DA68006863AF /* IsaacXRTeleopClient.app */,
+				3C3DF3FC2CE7DA6B006863AF /* IsaacXRTeleopClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3C3DF4192CE7DBA9006863AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3C3DF3E62CE7DA68006863AF /* IsaacXRTeleopClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C3DF4032CE7DA6B006863AF /* Build configuration list for PBXNativeTarget "IsaacXRTeleopClient" */;
+			buildPhases = (
+				3C3DF3E32CE7DA68006863AF /* Sources */,
+				3C3DF3E42CE7DA68006863AF /* Frameworks */,
+				3C3DF3E52CE7DA68006863AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3C3DF3E92CE7DA68006863AF /* IsaacXRTeleopClient */,
+			);
+			name = IsaacXRTeleopClient;
+			packageProductDependencies = (
+				3C647B3E2D5D211B009BD5E8 /* CloudXRKit */,
+			);
+			productName = IsaacSimXRTeleopClient;
+			productReference = 3C3DF3E72CE7DA68006863AF /* IsaacXRTeleopClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3C3DF3FB2CE7DA6B006863AF /* IsaacXRTeleopClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C3DF4082CE7DA6B006863AF /* Build configuration list for PBXNativeTarget "IsaacXRTeleopClientTests" */;
+			buildPhases = (
+				3C3DF3F82CE7DA6B006863AF /* Sources */,
+				3C3DF3F92CE7DA6B006863AF /* Frameworks */,
+				3C3DF3FA2CE7DA6B006863AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3C3DF3FE2CE7DA6B006863AF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3C3DF3FF2CE7DA6B006863AF /* IsaacXRTeleopClientTests */,
+			);
+			name = IsaacXRTeleopClientTests;
+			packageProductDependencies = (
+			);
+			productName = IsaacSimXRTeleopClientTests;
+			productReference = 3C3DF3FC2CE7DA6B006863AF /* IsaacXRTeleopClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3C3DF3DF2CE7DA68006863AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					3C3DF3E62CE7DA68006863AF = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					3C3DF3FB2CE7DA6B006863AF = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 3C3DF3E62CE7DA68006863AF;
+					};
+				};
+			};
+			buildConfigurationList = 3C3DF3E22CE7DA68006863AF /* Build configuration list for PBXProject "IsaacXRTeleopClient" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3C3DF3DE2CE7DA68006863AF;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3C647B3D2D5D211B009BD5E8 /* XCRemoteSwiftPackageReference "cloudxr-framework" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3C3DF3E82CE7DA68006863AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3C3DF3E62CE7DA68006863AF /* IsaacXRTeleopClient */,
+				3C3DF3FB2CE7DA6B006863AF /* IsaacXRTeleopClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3C3DF3E52CE7DA68006863AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C3DF3FA2CE7DA6B006863AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3C3DF3E32CE7DA68006863AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C3DF3F82CE7DA6B006863AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3C3DF3FE2CE7DA6B006863AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3C3DF3E62CE7DA68006863AF /* IsaacXRTeleopClient */;
+			targetProxy = 3C3DF3FD2CE7DA6B006863AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3C3DF4042CE7DA6B006863AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"IsaacXRTeleopClient/Preview Content\"";
+				DEVELOPMENT_TEAM = 6KR3T733EC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nvidia.IsaacSimXRTeleopClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+			};
+			name = Debug;
+		};
+		3C3DF4052CE7DA6B006863AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"IsaacXRTeleopClient/Preview Content\"";
+				DEVELOPMENT_TEAM = 6KR3T733EC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nvidia.IsaacSimXRTeleopClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+			};
+			name = Release;
+		};
+		3C3DF4062CE7DA6B006863AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = xros;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		3C3DF4072CE7DA6B006863AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = xros;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		3C3DF4092CE7DA6B006863AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6KR3T733EC;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nvidia.IsaacSimXRTeleopClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IsaacXRTeleopClient.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IsaacXRTeleopClient";
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		3C3DF40A2CE7DA6B006863AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6KR3T733EC;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nvidia.IsaacSimXRTeleopClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IsaacXRTeleopClient.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IsaacXRTeleopClient";
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C3DF3E22CE7DA68006863AF /* Build configuration list for PBXProject "IsaacXRTeleopClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C3DF4062CE7DA6B006863AF /* Debug */,
+				3C3DF4072CE7DA6B006863AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C3DF4032CE7DA6B006863AF /* Build configuration list for PBXNativeTarget "IsaacXRTeleopClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C3DF4042CE7DA6B006863AF /* Debug */,
+				3C3DF4052CE7DA6B006863AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C3DF4082CE7DA6B006863AF /* Build configuration list for PBXNativeTarget "IsaacXRTeleopClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C3DF4092CE7DA6B006863AF /* Debug */,
+				3C3DF40A2CE7DA6B006863AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3C647B3D2D5D211B009BD5E8 /* XCRemoteSwiftPackageReference "cloudxr-framework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NVIDIA/cloudxr-framework.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C647B3E2D5D211B009BD5E8 /* CloudXRKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C647B3D2D5D211B009BD5E8 /* XCRemoteSwiftPackageReference "cloudxr-framework" */;
+			productName = CloudXRKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 3C3DF3DF2CE7DA68006863AF /* Project object */;
+}

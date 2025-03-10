@@ -1,0 +1,42 @@
+include:
+  - project: "omniverse/devplat/gitlab/templates/common/compliance"
+    file: "modules/omniverse-repo-compliance.gitlab-ci.yml"
+    ref: "v1_latest"
+
+.osec:stage_base:
+  stage: scan
+
+# overrides for the osec:sonarqube job defined in /omniverse/sectools/gitlab-ci .. templates/.repo-scan/sonarqube.gitlab-ci.yml
+osec:sonarqube:
+  variables:
+    # disable cfamily analyzer since this is Swift territory, not .c/.cpp
+    SONAR_EXTRA_ARGS: "-Dsonar.c.file.suffixes=- -Dsonar.cpp.file.suffixes=- -Dsonar.objc.file.suffixes=-"
+
+stages:
+  - build
+  - scan
+
+build:
+  interruptible: true
+  stage: build
+  tags:
+    #- futurama-macos-xcode16.0
+    - ec2-configurator-macos-xcode-15.3
+  script:
+    - xcodebuild clean build -project IsaacXRTeleopClient.xcodeproj -scheme IsaacXRTeleopClient -destination "platform=visionOS Simulator,OS=2.0,name=Apple Vision Pro"
+
+# these rules will apply to entire flow.
+# you might be able to override in per-stage rules
+workflow:
+  rules:
+    - if: $CI_MERGE_REQUEST_TITLE =~ /^Draft:/ && $CI_JOB_MANUAL == "false"
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: always
+    - if: $CI_COMMIT_REF_NAME =~ /gitlab-ci/
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: always
+    - if: $CI_JOB_MANUAL == "true"
+      when: always
+
