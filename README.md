@@ -1,4 +1,4 @@
-# Isaac XR Teleop Sample Client for Apple Vision Pro
+# Isaac XR Teleop Sample Client
 
 The Isaac XR Teleop Sample Client is a sample app for Apple Vision Pro which enables immersive
 streaming and teleoperation of Isaac Sim and Isaac Lab simulations using CloudXR.
@@ -7,7 +7,7 @@ This README will walk you through building and installing the Isaac XR Teleop Sa
 
 These instructions are intended to be followed as a subsection of the Isaac Lab documentation:
 [Setting Up CloudXR
-Teleoperation](https://isaac-sim.github.io/IsaacLab/main/source/how-to/cloudxr_teleoperation.html).
+Teleoperation](https://isaac-sim.github.io/IsaacLab/main/source/how-to/cloudxr_teleoperation.html)
 
 
 ## Requirements
@@ -45,6 +45,13 @@ On your Mac:
 # Build the App
 
 On your Mac:
+
+1. Install `git-lfs`:
+
+    ```
+    brew install git-lfs
+    git lfs install
+    ```
 
 1. Clone the Isaac XR Teleop Sample Client GitHub repository:
 
@@ -89,3 +96,33 @@ On your Apple Vision Pro:
    See [Isaac Lab: Setting Up CloudXR
    Teleoperation](https://isaac-sim.github.io/IsaacLab/main/source/how-to/cloudxr_teleoperation.html)
    for how to set up and run CloudXR Teleoperation with Isaac Lab.
+
+# Known Issues
+
+The client may experience latency spikes depending on network conditions. If you encounter this issue, you can enable **Low Latency Streaming (LLS)** by following these steps:
+
+1. Create a new entitlements file:
+   - In Xcode, right-click on your folder in the Project Navigator
+   - Select "New Empty File"
+
+![](image/README/1754436121710.png)
+
+2. Name the entitlements file:
+   - Save it as `IsaacXRTeleopClient.entitlements` in your project directory
+
+![](image/README/1754436245447.png)
+
+3. Configure Low Latency Streaming:
+   - Open the entitlements file
+   - Add a new key: `com.apple.developer.low-latency-streaming`
+   - Set the type to "Boolean" and value to "YES"
+
+![](image/README/1754436304483.png)
+
+4. Apply the entitlements to your build:
+   - Select your project in the Project Navigator
+   - Go to "Build Settings"
+   - Search for "Code Signing Entitlements"
+   - Set the path to your newly created `IsaacXRTeleopClient.entitlements` file
+
+![](image/README/1754436298730.png)

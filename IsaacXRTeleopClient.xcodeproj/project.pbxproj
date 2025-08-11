@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C647B3F2D5D211B009BD5E8 /* CloudXRKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3C647B3E2D5D211B009BD5E8 /* CloudXRKit */; };
+		3C39893F2D650251004B964E /* CloudXRKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3C39893E2D650251004B964E /* CloudXRKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C647B3F2D5D211B009BD5E8 /* CloudXRKit in Frameworks */,
+				3C39893F2D650251004B964E /* CloudXRKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +116,7 @@
 			);
 			name = IsaacXRTeleopClient;
 			packageProductDependencies = (
-				3C647B3E2D5D211B009BD5E8 /* CloudXRKit */,
+				3C39893E2D650251004B964E /* CloudXRKit */,
 			);
 			productName = IsaacSimXRTeleopClient;
 			productReference = 3C3DF3E72CE7DA68006863AF /* IsaacXRTeleopClient.app */;
@@ -174,7 +174,7 @@
 			mainGroup = 3C3DF3DE2CE7DA68006863AF;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				3C647B3D2D5D211B009BD5E8 /* XCRemoteSwiftPackageReference "cloudxr-framework" */,
+				BB2B65FA2E45517200BA48EA /* XCRemoteSwiftPackageReference "cloudxr-framework" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3C3DF3E82CE7DA68006863AF /* Products */;
@@ -478,20 +478,19 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3C647B3D2D5D211B009BD5E8 /* XCRemoteSwiftPackageReference "cloudxr-framework" */ = {
+		BB2B65FA2E45517200BA48EA /* XCRemoteSwiftPackageReference "cloudxr-framework" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NVIDIA/cloudxr-framework.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.0;
+				version = 5.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3C647B3E2D5D211B009BD5E8 /* CloudXRKit */ = {
+		3C39893E2D650251004B964E /* CloudXRKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3C647B3D2D5D211B009BD5E8 /* XCRemoteSwiftPackageReference "cloudxr-framework" */;
 			productName = CloudXRKit;
 		};
 /* End XCSwiftPackageProductDependency section */

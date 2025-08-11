@@ -23,7 +23,10 @@ struct TopConfigView: View {
                 VStack {
                     switch viewModel.uiPage {
                     case .main: mainPage
-                    case .hud: HUDView(session: viewModel.cxrSession, hudConfig: viewModel.hudConfig)
+                    case .hud:
+                            List {
+                                HUDView(session: viewModel.cxrSession, hudConfig: viewModel.hudConfig)
+                            }
                     }
                 }.ornament(
                     visibility: viewModel.showOrnaments ? .visible : .hidden,
@@ -64,7 +67,7 @@ struct TopConfigView: View {
             .frame(height: 150, alignment: .top)
 
             VStack {
-                if viewModel.showIPDView {
+                if viewModel.showEyePositionView {
                     SettingsView(viewModel: SettingsView.ViewModel(appModel: viewModel.appModel))
                         .frame(maxHeight: .infinity, alignment: .top)
                 }
@@ -103,7 +106,7 @@ extension TopConfigView {
 
         let hudConfig = HUDConfig()
 
-        var showIPDView: Bool {
+        var showEyePositionView: Bool {
             switch cxrSession.state {
             case .disconnected, .initialized:
                 true

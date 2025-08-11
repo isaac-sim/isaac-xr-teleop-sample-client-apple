@@ -13,7 +13,7 @@ import RealityKit
 import CloudXRKit
 import ARKit
 
-let streamingSpaceTitle = "IsaacSimTeleopStreamingImmersiveSpace"
+let streamingSpaceTitle = "IsaacTeleopStreamingImmersiveSpace"
 
 struct StreamingView: View {
     @State var viewModel: ViewModel

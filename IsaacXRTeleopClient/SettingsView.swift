@@ -16,18 +16,20 @@ struct SettingsView: View {
 
     var body: some View {
         Section(header: HStack {
-            Text("Interpupillary Distance (IPD)").font(.title2)
+            Text("Eye Positions (in Device Space)").font(.title2)
             Spacer()
         }) {
             HStack {
-                Text("Current IPD value: \(viewModel.roundedIpd) mm")
+                Text("Left Eye(mm):\n\(String(format:"(%.1f, %.1f, %.1f)", viewModel.leftEyePosition.x, viewModel.leftEyePosition.y, viewModel.leftEyePosition.z))")
                 Spacer()
-                Button("Measure ipd") {
-                    viewModel.measureIpd()
+                Text("Right Eye(mm):\n\(String(format:"(%.1f, %.1f, %.1f)", viewModel.rightEyePosition.x, viewModel.rightEyePosition.y, viewModel.rightEyePosition.z))")
+                Spacer()
+                Button("Measure") {
+                    viewModel.measureEyePositions()
                 }
                 .cornerRadius(20)
                 .buttonStyle(.bordered)
-                .disabled(viewModel.disableIpdMeasurement)
+                .disabled(viewModel.disableEyePositionMeasurement)
             }
             .frame(height: 100, alignment: .top)
         }
@@ -49,7 +51,7 @@ extension SettingsView {
             self.appModel = appModel
         }
 
-        func measureIpd() {
+        func measureEyePositions() {
             appModel.hmdProperties.beginIpdCheck(openImmersiveSpace: appModel.openImmersiveSpace, forceRefresh: true)
         }
 
@@ -60,12 +62,16 @@ extension SettingsView {
             }
         }
 
-        var disableIpdMeasurement: Bool {
+        var disableEyePositionMeasurement: Bool {
             disablePerRunParams
         }
 
-        var roundedIpd: String {
-            String(format: "%.1f", appModel.hmdProperties.measuredIpd * 1000)
+        var leftEyePosition: simd_float3 {
+            return appModel.hmdProperties.leftEyeInDeviceSpace * 1000
+        }
+        
+        var rightEyePosition: simd_float3 {
+            return appModel.hmdProperties.rightEyeInDeviceSpace * 1000
         }
     }
 }
