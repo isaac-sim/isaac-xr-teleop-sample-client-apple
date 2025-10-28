@@ -10,3 +10,5 @@ CloudXRKit filter=lfs diff=lfs merge=lfs -text
 NVTelemetry filter=lfs diff=lfs merge=lfs -text
 isaacsim-xr-teleop-sample-app_20241205v2.zip filter=lfs diff=lfs merge=lfs -text
 isaacsim-xr-teleop-sample-app_20241206.zip filter=lfs diff=lfs merge=lfs -text
+image/README/Delete_Entitlement.png filter=lfs diff=lfs merge=lfs -text
+image/README/Entitlement_Errors.png filter=lfs diff=lfs merge=lfs -text

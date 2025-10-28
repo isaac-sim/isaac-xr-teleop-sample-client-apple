@@ -8,7 +8,7 @@
 // without an express license agreement from NVIDIA CORPORATION or
 // its affiliates is strictly prohibited.
 
-import RealityFoundation
+import RealityKit
 import Foundation
 import CloudXRKit
 import SwiftUI

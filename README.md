@@ -15,8 +15,8 @@ Teleoperation](https://isaac-sim.github.io/IsaacLab/main/source/how-to/cloudxr_t
 In order to build and install the Isaac XR Teleop Sample Client, please review the following system
 requirements:
 
-* Apple Vision Pro with visionOS 2.0 or later
-* Apple Silicon based Mac with macOS Sonoma 14.5 or later
+* Apple Vision Pro with visionOS 26 or later
+* Apple Silicon based Mac with macOS Sequoia 15.6 or later
 * A Wifi network in which both devices are IP-reachable from one another
 
   Note: we recommend using a dedicated Wifi router, as many institutional wireless networks will
@@ -30,7 +30,7 @@ On your Mac:
 
 1. Click [here](https://developer.apple.com/programs/enroll/) to create your Apple developer account.
 
-1. Download and install Xcode 16.0+ [here](https://developer.apple.com/xcode/).
+1. Download and install Xcode 26.0+ [here](https://developer.apple.com/xcode/).
 
    Be sure to install the visionOS platform when prompted to add run destinations.
 
@@ -57,6 +57,18 @@ On your Mac:
 
    ```
    git clone git@github.com:isaac-sim/isaac-xr-teleop-sample-client-apple.git
+   ```
+   
+1. Check out the version tag corresponding to your Isaac Lab version:
+
+   | Isaac Lab Version | Client version Tag |
+   |-------------------|--------------------|
+   | 2.3.x             | v2.3.0
+   | 2.2.x             | v2.2.0             |
+   | 2.1.x             | v1.0.0             |
+
+   ```
+   git checkout <version_tag>
    ```
 
 1. Open `IsaacXRTeleopClient.xcodeproject` in the root directory of the repository to launch Xcode.
@@ -97,32 +109,14 @@ On your Apple Vision Pro:
    Teleoperation](https://isaac-sim.github.io/IsaacLab/main/source/how-to/cloudxr_teleoperation.html)
    for how to set up and run CloudXR Teleoperation with Isaac Lab.
 
+
 # Known Issues
 
-The client may experience latency spikes depending on network conditions. If you encounter this issue, you can enable **Low Latency Streaming (LLS)** by following these steps:
+If the client fails to build with the following signing errors, your Apple ID likely isn’t enrolled in the [Apple Developer Program (ADP)](https://developer.apple.com/programs). Apple Low‑Latency Streaming is available only to ADP members. Some accounts may be eligible to [enroll at no cost](https://developer.apple.com/help/account/membership/fee-waivers).
 
-1. Create a new entitlements file:
-   - In Xcode, right-click on your folder in the Project Navigator
-   - Select "New Empty File"
+![](image/README/Entitlement_Errors.png)
 
-![](image/README/1754436121710.png)
+To disable Low-Latency Streaming and build without ADP, delete the Code Signing Entitlements in Build Settings.
 
-2. Name the entitlements file:
-   - Save it as `IsaacXRTeleopClient.entitlements` in your project directory
+![](image/README/Delete_Entitlement.png)
 
-![](image/README/1754436245447.png)
-
-3. Configure Low Latency Streaming:
-   - Open the entitlements file
-   - Add a new key: `com.apple.developer.low-latency-streaming`
-   - Set the type to "Boolean" and value to "YES"
-
-![](image/README/1754436304483.png)
-
-4. Apply the entitlements to your build:
-   - Select your project in the Project Navigator
-   - Go to "Build Settings"
-   - Search for "Code Signing Entitlements"
-   - Set the path to your newly created `IsaacXRTeleopClient.entitlements` file
-
-![](image/README/1754436298730.png)
