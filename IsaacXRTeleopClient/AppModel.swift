@@ -25,7 +25,6 @@ class AppModel {
 
     let cxrSession = CloudXRSession(config: CloudXRKit.Config())
 
-    let hmdProperties = HmdProperties()
 
     let sessionEntity = Entity()
 
@@ -94,8 +93,5 @@ class AppModel {
         // Make sure this happens before the IPD check.
         CloudXRKit.registerSystems()
 
-        hmdProperties.beginIpdCheck(
-            openImmersiveSpace: openImmersiveSpace
-        )
     }
 }

@@ -23,7 +23,7 @@ build:
     #- futurama-macos-xcode16.0
     - ec2-configurator-macos-xcode-15.3
   script:
-    - xcodebuild clean build -project IsaacXRTeleopClient.xcodeproj -scheme IsaacXRTeleopClient -destination "platform=visionOS Simulator,OS=2.0,name=Apple Vision Pro"
+    - xcodebuild clean build -project IsaacXRTeleopClient.xcodeproj -scheme IsaacXRTeleopClient -destination "platform=visionOS Simulator,OS=26.0,name=Apple Vision Pro"
 
 # these rules will apply to entire flow.
 # you might be able to override in per-stage rules

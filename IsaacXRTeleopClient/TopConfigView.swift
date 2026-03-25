@@ -65,14 +65,6 @@ struct TopConfigView: View {
                     .frame(alignment: .top)
             }
             .frame(height: 150, alignment: .top)
-
-            VStack {
-                if viewModel.showEyePositionView {
-                    SettingsView(viewModel: SettingsView.ViewModel(appModel: viewModel.appModel))
-                        .frame(maxHeight: .infinity, alignment: .top)
-                }
-            }
-            .frame(height: 100, alignment: .top)
         }
         .frame(alignment: .top)
     }
@@ -105,15 +97,6 @@ extension TopConfigView {
         var uiPage: UiPage = .main
 
         let hudConfig = HUDConfig()
-
-        var showEyePositionView: Bool {
-            switch cxrSession.state {
-            case .disconnected, .initialized:
-                true
-            default:
-                false
-            }
-        }
 
         var showOrnaments: Bool {
             return cxrSession.state == .connected

@@ -152,7 +152,11 @@ extension StreamingControlsView {
 
                     config.connectionType = .local(ip: ipAddress)
                     config.resolutionPreset = .standardPreset
-                    config.handTrackingMode = .legacy
+                    #if targetEnvironment(simulator)
+                        config.handTrackingMode = .disabled
+                    #else
+                        config.handTrackingMode = .legacy
+                    #endif
                     appModel.cxrSession.configure(config: config)
                     try await appModel.cxrSession.connect()
                 default:

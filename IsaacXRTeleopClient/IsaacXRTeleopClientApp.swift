@@ -25,7 +25,6 @@ struct IsaacXRTeleopClientApp: App {
     static let launchSize = CGSize(width: 500, height: 550)
 
     var body: some Scene {
-        FetchHmdPropertiesImmersiveSpace(hmdProperties: appModel.hmdProperties)
 
         WindowGroup(id: configViewTitle) {
             TopConfigView(viewModel: TopConfigView.ViewModel(appModel: appModel))

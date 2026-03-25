@@ -19,6 +19,8 @@ requirements:
 * Apple Silicon based Mac with macOS Sequoia 15.6 or later
 * A Wifi network in which both devices are IP-reachable from one another
 
+You need to manually download and install Xcode. The project requires Xcode 26 and VisionOS 26.0 (SDK+simulator).
+
   Note: we recommend using a dedicated Wifi router, as many institutional wireless networks will
   prevent devices from reaching each other, resulting in the Apple Vision Pro being unable to find
   the Isaac Lab workstation on the network.
@@ -63,7 +65,8 @@ On your Mac:
 
    | Isaac Lab Version | Client version Tag |
    |-------------------|--------------------|
-   | 2.3.x             | v2.3.0
+   | 3.x.x             | v3.0.0             |
+   | 2.3.x             | v2.3.0             |
    | 2.2.x             | v2.2.0             |
    | 2.1.x             | v1.0.0             |
 
@@ -109,7 +112,6 @@ On your Apple Vision Pro:
    Teleoperation](https://isaac-sim.github.io/IsaacLab/main/source/how-to/cloudxr_teleoperation.html)
    for how to set up and run CloudXR Teleoperation with Isaac Lab.
 
-
 # Known Issues
 
 If the client fails to build with the following signing errors, your Apple ID likely isn’t enrolled in the [Apple Developer Program (ADP)](https://developer.apple.com/programs). Apple Low‑Latency Streaming is available only to ADP members. Some accounts may be eligible to [enroll at no cost](https://developer.apple.com/help/account/membership/fee-waivers).
@@ -119,4 +121,3 @@ If the client fails to build with the following signing errors, your Apple ID li
 To disable Low-Latency Streaming and build without ADP, delete the Code Signing Entitlements in Build Settings.
 
 ![](image/README/Delete_Entitlement.png)
-
