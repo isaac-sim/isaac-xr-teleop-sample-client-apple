@@ -60,10 +60,14 @@ struct TeleopControlView: View {
                 }
                 .font(.title3)
                 .buttonStyle(.bordered)
+                .disabled(viewModel.teleopButtonsDisabled)
             }
             .frame(height: 100, alignment: .top)
         }
         .padding()
+        .onDisappear {
+            viewModel.cancelPendingSend()
+        }
     }
 }
 
@@ -77,6 +81,12 @@ extension TeleopControlView {
         private let stopTeleopCommand = "stop teleop"
         private let resetTeleopCommand = "reset teleop"
 
+        /// True while a deferred send is awaiting channel discovery.
+        private var isAwaitingChannel = false
+
+        /// Tracked deferred send task so it can be cancelled on disconnect.
+        @ObservationIgnored private var deferredSendTask: Task<Void, Never>?
+
         var teleopRunning: Bool {
             get { appModel.teleopRunning }
             set { appModel.teleopRunning = newValue }
@@ -86,7 +96,23 @@ extension TeleopControlView {
             self.appModel = appModel
         }
 
-        func sendTeleopCommandToServer(command: String) {
+        /// Cancel any in-flight deferred send and reset awaiting state.
+        /// Called via `.onDisappear` when the teleop view is removed
+        /// (e.g. on disconnect, when `showTeleopView` becomes false).
+        func cancelPendingSend() {
+            deferredSendTask?.cancel()
+            deferredSendTask = nil
+            isAwaitingChannel = false
+        }
+
+        /// Send a teleop command over the message channel.
+        ///
+        /// When the channel is already available, sends synchronously and
+        /// returns `true`.  Otherwise queues a single deferred send that
+        /// awaits channel discovery; `onDeferredSuccess` is called if that
+        /// deferred send eventually succeeds.
+        @discardableResult
+        func sendTeleopCommandToServer(command: String, onDeferredSuccess: (() -> Void)? = nil) -> Bool {
             let teleopCommand = ClientToServerCommand(
                 type: "teleop_command",
                 message: [
@@ -94,22 +120,60 @@ extension TeleopControlView {
                 ]
             )
             let jsonEncoder = JSONEncoder()
-            if let jsonCommand = try? jsonEncoder.encode(teleopCommand) {
-                appModel.cxrSession.sendServerMessage(jsonCommand)
-                Self.logger.info("Teleop command sent: \(command)")
-            } else {
+            guard let jsonCommand = try? jsonEncoder.encode(teleopCommand) else {
                 Self.logger.error("JSON encoding failed.")
+                return false
+            }
+
+            if let channel = appModel.teleopChannel {
+                let success = channel.sendServerMessage(jsonCommand)
+                if success {
+                    Self.logger.info("Teleop command sent via MessageChannel: \(command)")
+                } else {
+                    Self.logger.error("MessageChannel.sendServerMessage failed for: \(command)")
+                }
+                return success
+            } else {
+                Self.logger.info("MessageChannel not ready, awaiting…")
+                isAwaitingChannel = true
+                deferredSendTask?.cancel()
+                deferredSendTask = Task { [weak self] in
+                    guard let self else { return }
+                    defer {
+                        self.isAwaitingChannel = false
+                        self.deferredSendTask = nil
+                    }
+                    if let channel = await appModel.awaitTeleopChannel() {
+                        guard !Task.isCancelled else { return }
+                        let success = channel.sendServerMessage(jsonCommand)
+                        if success {
+                            Self.logger.info("Teleop command sent via MessageChannel (deferred): \(command)")
+                            onDeferredSuccess?()
+                        } else {
+                            Self.logger.error("MessageChannel.sendServerMessage failed (deferred) for: \(command)")
+                        }
+                    } else {
+                        Self.logger.error("Failed to send teleop command: no message channel available")
+                    }
+                }
+                return false
             }
         }
 
         func teleopStartButtonPressed() {
-            teleopRunning = true
-            sendTeleopCommandToServer(command: startTeleopCommand)
+            if sendTeleopCommandToServer(command: startTeleopCommand, onDeferredSuccess: { [weak self] in
+                self?.teleopRunning = true
+            }) {
+                teleopRunning = true
+            }
         }
 
         func teleopStopButtonPressed() {
-            teleopRunning = false
-            sendTeleopCommandToServer(command: stopTeleopCommand)
+            if sendTeleopCommandToServer(command: stopTeleopCommand, onDeferredSuccess: { [weak self] in
+                self?.teleopRunning = false
+            }) {
+                teleopRunning = false
+            }
         }
 
         func teleopResetButtonPressed() {
@@ -144,12 +208,16 @@ extension TeleopControlView {
             "Stop"
         }
 
+        var teleopButtonsDisabled: Bool {
+            isAwaitingChannel
+        }
+
         var teleopStartButtonDisabled: Bool {
-            teleopRunning
+            teleopRunning || teleopButtonsDisabled
         }
 
         var teleopStopButtonDisabled: Bool {
-            !teleopRunning
+            !teleopRunning || teleopButtonsDisabled
         }
     }
 }

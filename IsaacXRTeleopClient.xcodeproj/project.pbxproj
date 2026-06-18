@@ -174,7 +174,7 @@
 			mainGroup = 3C3DF3DE2CE7DA68006863AF;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				BB771BD42F749CEB006F3017 /* XCRemoteSwiftPackageReference "cloudxr-framework" */,
+				BBBDD67B2FE3CF8B00127548 /* XCRemoteSwiftPackageReference "cloudxr-framework" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3C3DF3E82CE7DA68006863AF /* Products */;
@@ -480,7 +480,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BB771BD42F749CEB006F3017 /* XCRemoteSwiftPackageReference "cloudxr-framework" */ = {
+		BBBDD67B2FE3CF8B00127548 /* XCRemoteSwiftPackageReference "cloudxr-framework" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NVIDIA/cloudxr-framework.git";
 			requirement = {

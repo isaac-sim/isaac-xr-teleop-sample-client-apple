@@ -13,9 +13,15 @@ import Foundation
 import CloudXRKit
 import SwiftUI
 import ARKit
+import os.log
 
 @Observable
 class AppModel {
+    @ObservationIgnored static let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier ?? "IsaacXRTeleopClient",
+        category: "AppModel"
+    )
+
     var openImmersiveSpace: OpenImmersiveSpaceAction!
     var dismissImmersiveSpace: DismissImmersiveSpaceAction!
     var openWindow: OpenWindowAction!
@@ -25,10 +31,15 @@ class AppModel {
 
     let cxrSession = CloudXRSession(config: CloudXRKit.Config())
 
-
     let sessionEntity = Entity()
 
     static private let savedSettings = SavedSettings()
+
+    /// The teleop message channel, set once the server announces it after connect.
+    var teleopChannel: MessageChannel?
+
+    /// In-flight channel discovery task so we don't spawn duplicates.
+    @ObservationIgnored private var channelDiscoveryTask: Task<Void, Never>?
 
     var configWindowIsOpen: Bool = false {
         didSet {
@@ -55,6 +66,70 @@ class AppModel {
             Self.savedSettings.ipAddress = ipAddress
         }
     }
+
+    // MARK: - Message channel discovery
+
+    /// Poll for the teleop message channel and open it once available.
+    /// The server announces channels after the OpenXR teleop session is
+    /// created, which may lag behind the streaming connection.
+    func awaitTeleopChannel() async -> MessageChannel? {
+        if let channel = teleopChannel {
+            return channel
+        }
+
+        let maxWaitMs = 10_000
+        let pollIntervalMs = 250
+        let pollIntervalNs: UInt64 = UInt64(pollIntervalMs) * 1_000_000
+
+        var waited = 0
+        while waited < maxWaitMs {
+            if Task.isCancelled { return nil }
+            guard cxrSession.state == .connected else { return nil }
+
+            let channels = cxrSession.availableMessageChannels
+            if let info = findTeleopChannel(in: channels) {
+                if let channel = cxrSession.getMessageChannel(info) {
+                    // Eagerly send a ping to trigger the OPEN handshake so the
+                    // server transitions the channel to CONNECTED immediately.
+                    let ping = "{\"type\":\"ping\"}".data(using: .utf8)!
+                    _ = channel.sendServerMessage(ping)
+
+                    teleopChannel = channel
+                    Self.logger.info("Teleop message channel opened")
+                    return channel
+                }
+            }
+            do {
+                try await Task.sleep(nanoseconds: pollIntervalNs)
+            } catch {
+                return nil
+            }
+            waited += pollIntervalMs
+        }
+
+        Self.logger.error("No teleop message channel available after \(maxWaitMs)ms")
+        return nil
+    }
+
+    /// Start channel discovery in the background. Safe to call multiple times;
+    /// redundant calls are no-ops while a discovery task is in flight.
+    func beginChannelDiscovery() {
+        guard channelDiscoveryTask == nil else { return }
+        channelDiscoveryTask = Task {
+            _ = await awaitTeleopChannel()
+            channelDiscoveryTask = nil
+        }
+    }
+
+    /// Tear down channel state when the session disconnects.
+    func resetChannelState() {
+        channelDiscoveryTask?.cancel()
+        channelDiscoveryTask = nil
+        teleopChannel = nil
+        teleopRunning = false
+    }
+
+    // MARK: - Scene phase
 
     func appScenePhaseChanged(to scenePhase: ScenePhase) {
         // If the app scene phase has changed to inactive, dismiss the immersive space as well.
@@ -92,6 +167,5 @@ class AppModel {
 
         // Make sure this happens before the IPD check.
         CloudXRKit.registerSystems()
-
     }
 }
